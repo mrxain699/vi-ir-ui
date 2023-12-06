@@ -14,16 +14,17 @@
 
 
 @layer components {
+    .login-wrapper {
+        @apply w-full flex justify-center items-center h-screen bg-white;
+    }
+
     .login-header {
         @apply w-full bg-white shadow h-[60px] fixed top-0 left-0 flex items-center;
     }
 
-    .login-wrapper {
-        @apply w-full flex flex-col justify-center items-center min-h-screen bg-white;
-    }
 
     .login-box {
-        @apply w-[400px] min-h-full bg-white shadow-light flex flex-col items-center rounded-lg;
+        @apply w-[400px] h-fit bg-white shadow-light flex flex-col items-center rounded-lg;
     }
 
     .input {

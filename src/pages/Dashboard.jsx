@@ -105,11 +105,11 @@ const Dashboard = () => {
               icon={faFilePrescription}
             />
           </div>
-          <div className="directories-divider w-full flex gap-2 items-center my-2 realtive">
+          <div className="directories-divider w-full flex gap-2 flex-wrap items-center my-2 realtive">
             <h1 className="text-violet-600 text-lg ">Directories</h1>
             <div className="line grow border-y-2 border-violet-100 mt-1"></div>
             <button
-              className="bg-violet-600 text-white text-basic px-4 py-2 rounded-lg flex gap-2 items-center  hover:bg-violet-500"
+              className="bg-violet-600 text-white text-basic px-4 py-2 rounded-lg flex gap-2 items-center  hover:bg-violet-500 max-sm:w-full max-sm:justify-center"
               onClick={() => setModalVisible(true)}
             >
               <FontAwesomeIcon icon={faCloudArrowUp} /> Upload File

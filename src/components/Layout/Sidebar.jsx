@@ -13,8 +13,12 @@ import { AuthContext } from "../../api/Auth";
 import { FileContext } from "../../api/File";
 export const Sidebar = () => {
   const { logout } = useContext(AuthContext);
-  const { setModalVisible, setPasswordModalVisible, toggleSidebar } =
-    useContext(FileContext);
+  const {
+    setModalVisible,
+    setPasswordModalVisible,
+    toggleSidebar,
+    setToggleSidebar,
+  } = useContext(FileContext);
   console.log(toggleSidebar);
   return (
     <div
@@ -31,18 +35,36 @@ export const Sidebar = () => {
           <h4 className=" text-slate-400 text-[14px] font-light ml-4 mb-4">
             Manage Directories
           </h4>
-          <NavLink to="/dashboard" className="links">
+          <NavLink
+            to="/dashboard"
+            className="links"
+            onClick={() => setToggleSidebar(!toggleSidebar)}
+          >
             <FontAwesomeIcon icon={faGauge} className="icon" /> Dashboard
           </NavLink>
-          <button className="links" onClick={() => setModalVisible(true)}>
+          <button
+            className="links"
+            onClick={() => {
+              setModalVisible(true);
+              setToggleSidebar(!toggleSidebar);
+            }}
+          >
             <FontAwesomeIcon icon={faCircleArrowUp} className="icon" /> Upload
             File
           </button>
-          <NavLink to="/directory/files" className="links">
+          <NavLink
+            to="/directory/files"
+            className="links"
+            onClick={() => setToggleSidebar(!toggleSidebar)}
+          >
             <FontAwesomeIcon icon={faFilePrescription} className="icon" /> Fbx
             Directory
           </NavLink>
-          <NavLink to="/directory/images" className="links">
+          <NavLink
+            to="/directory/images"
+            className="links"
+            onClick={() => setToggleSidebar(!toggleSidebar)}
+          >
             <FontAwesomeIcon icon={faFileImage} className="icon" /> Image
             Directory
           </NavLink>

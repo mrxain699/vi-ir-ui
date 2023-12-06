@@ -31,12 +31,12 @@ const Login = () => {
     }
   };
   return (
-    <div className="login-wrapper">
-      <div className="login-header px-8 sm:pd-x2">
+    <div className="login-wrapper max-sm:px-6">
+      <div className="login-header px-8 max-sm:px-4">
         <h1 className="font-bold text-violet-600 text-2xl">VIR-IR</h1>
       </div>
 
-      <div className="login-box px-6 py-8 max-sm:mx-4 ">
+      <div className="login-box px-6 py-8">
         <h1 className="font-[600] text-violet-700 text-2xl w-full text-center">
           Login your account.
         </h1>

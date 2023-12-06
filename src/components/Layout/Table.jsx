@@ -47,21 +47,22 @@ export const Table = ({ directory }) => {
                   <NavLink
                     to={file.file_url}
                     target="_blank"
-                    className="text-xl font-[600] text-green-700"
+                    className="text-xs font-[500] text-white inline-block px-2 py-1.5 bg-green-700 rounded-lg mx-auto"
                   >
-                    <FontAwesomeIcon icon={faEye} />
+                    <FontAwesomeIcon icon={faEye} />{" "}
+                    <span className="ml-1">View</span>
                   </NavLink>
                 </td>
                 <td className="px-6 py-4 text-center">
                   <button
                     type="button"
-                    className="text-xl font-[600] text-red-500"
+                    className="text-xs font-[500] text-white flex gap-2 justify-center items-center px-2 py-1.5 bg-red-600 rounded-lg mx-auto"
                     onClick={() => {
                       setAlertModalVisible(true);
                       setFileId(file._id);
                     }}
                   >
-                    <FontAwesomeIcon icon={faTrashCan} />
+                    <FontAwesomeIcon icon={faTrashCan} /> <span>Delete</span>
                   </button>
                 </td>
               </tr>
