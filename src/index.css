@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*, html {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+
+@layer components {
+    .login-header {
+        @apply w-full bg-white shadow h-[60px] fixed top-0 left-0 flex items-center;
+    }
+
+    .login-wrapper {
+        @apply w-full flex flex-col justify-center items-center min-h-screen bg-white;
+    }
+
+    .login-box {
+        @apply w-[400px] min-h-full bg-white shadow-light flex flex-col items-center rounded-lg;
+    }
+
+    .input {
+        @apply w-full my-2 border px-4 py-2.5 text-black rounded-md outline-violet-200 text-base;
+    }
+
+    .links {
+        @apply flex gap-2 items-center text-[15px] text-black cursor-pointer px-4 py-3 leading-none;
+    }
+
+    .links:hover {
+        @apply bg-violet-50;
+    }
+
+    .icon {
+        @apply text-violet-600 text-lg
+    }
+
+    .counter-item {
+        @apply flex justify-between grow h-32 rounded-lg border-2 mb-3;
+    }
+
+    .counter-info, .counter-info-icon {
+        @apply flex flex-col h-full justify-center px-4
+    }
+
+    .directories-link {
+        @apply flex flex-col justify-center items-center gap-2 px-3 py-3 rounded-md
+    }
+
+
+}
