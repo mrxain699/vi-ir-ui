@@ -124,7 +124,7 @@ const Dashboard = () => {
                 icon={faFolderOpen}
                 className="text-6xl text-yellow-500 ml-1"
               />
-              <span className="text-sm">Images</span>
+              <span className="text-sm text-slate-600">Images</span>
             </NavLink>
             <NavLink
               to="/directory/files"
@@ -134,7 +134,7 @@ const Dashboard = () => {
                 icon={faFolderOpen}
                 className="text-6xl text-yellow-500 ml-1"
               />
-              <span className="text-sm">Fbx Files</span>
+              <span className="text-sm text-slate-600">Fbx Files</span>
             </NavLink>
           </div>
         </div>

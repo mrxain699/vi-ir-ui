@@ -22,7 +22,7 @@ const Dashboard = () => {
       <div className="w-1/3 h-screen ml-[250px] pt-[60px] max-sm:w-full max-sm:ml-0">
         <div className="main-wrapper w-full h-full pt-8 px-8">
           <div className="directories-divider w-full flex gap-2 items-center ">
-            <h1 className="text-black text-lg flex gap-2 items-center">
+            <h1 className="text-slate-600 text-lg flex gap-2 items-center">
               <FontAwesomeIcon
                 icon={faFolderOpen}
                 className="text-yellow-500"

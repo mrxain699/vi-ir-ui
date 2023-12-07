@@ -28,11 +28,11 @@
     }
 
     .input {
-        @apply w-full my-2 border px-4 py-2.5 text-black rounded-md outline-violet-200 text-base;
+        @apply w-full my-2 border px-4 py-2.5 text-slate-700 rounded-md outline-violet-200 text-base;
     }
 
     .links {
-        @apply flex gap-2 items-center text-[15px] text-black cursor-pointer px-4 py-3 leading-none;
+        @apply flex gap-2 items-center text-[15px] text-slate-700 cursor-pointer px-4 py-3 leading-none;
     }
 
     .links:hover {

@@ -67,7 +67,7 @@ const Login = () => {
             name="username"
             placeholder="Username"
             required
-            className="input placeholder:text-sm"
+            className="input placeholder:text-sm focus:bg-white"
             value={formData.username}
             onChange={handleChange}
           />

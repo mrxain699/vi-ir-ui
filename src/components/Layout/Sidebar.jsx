@@ -11,6 +11,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { AuthContext } from "../../api/Auth";
 import { FileContext } from "../../api/File";
+import { useNavigate } from "react-router-dom";
 export const Sidebar = () => {
   const { logout } = useContext(AuthContext);
   const {
@@ -19,7 +20,16 @@ export const Sidebar = () => {
     toggleSidebar,
     setToggleSidebar,
   } = useContext(FileContext);
-  console.log(toggleSidebar);
+  const navigate = useNavigate();
+  const handleLogout = async () => {
+    await logout()
+      .then(() => {
+        navigate("/", { replace: true });
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
   return (
     <div
       className={`sidebar w-[250px] h-screen fixed top-0 left-0  border border-slate-100  bg-white   ${
@@ -75,7 +85,7 @@ export const Sidebar = () => {
             <FontAwesomeIcon icon={faLock} className="icon" /> Change Password
           </button>
         </div>
-        <button type="button" className="links mb-0.5" onClick={() => logout()}>
+        <button type="button" className="links mb-0.5" onClick={handleLogout}>
           <FontAwesomeIcon icon={faArrowRightFromBracket} className="icon" />
           Logout
         </button>

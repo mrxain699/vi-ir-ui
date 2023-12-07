@@ -14,6 +14,7 @@ export const Modal = () => {
   const [file, setFile] = useState(null);
   const [image, setImage] = useState(null);
   const [type, setType] = useState(null);
+  const [error, setError] = useState(null);
   const inputRef = useRef();
 
   const handleDragOver = (event) => {
@@ -38,12 +39,17 @@ export const Modal = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const formData = new FormData();
-    formData.append("file", file);
-    await uploadFile(formData, type);
-    setModalVisible(false);
-    setFile(null);
-    setImage(null);
+    if (file) {
+      const formData = new FormData();
+      formData.append("file", file);
+      await uploadFile(formData, type);
+      setModalVisible(false);
+      setFile(null);
+      setImage(null);
+      setError(null);
+    } else {
+      setError("Image is required");
+    }
   };
 
   if (!modalVisible) return null;
@@ -59,12 +65,18 @@ export const Modal = () => {
               setModalVisible(false);
               setFile(null);
               setImage(null);
+              setError(null);
             }}
           >
             <FontAwesomeIcon icon={faXmark} />
           </button>
         </div>
         <div className="modal-body w-full px-4 py-2">
+          {error && (
+            <div className="bg-red-100 rounded-lg w-full px-3 py-3 mt-2 ">
+              <p className="text-base text-red-500 font-[500]">{error}</p>
+            </div>
+          )}
           <form
             method="post"
             encType="multipart/form-data"
