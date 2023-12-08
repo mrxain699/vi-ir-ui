@@ -1,6 +1,10 @@
 import { useContext, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTrashCan, faEye } from "@fortawesome/free-solid-svg-icons";
+import {
+  faTrashCan,
+  faEye,
+  faCloudArrowDown,
+} from "@fortawesome/free-solid-svg-icons";
 import { FileContext } from "../../api/File.jsx";
 import Loader from "./Loader.jsx";
 import { formatDate } from "../../utils/Functions.jsx";
@@ -47,10 +51,16 @@ export const Table = ({ directory }) => {
                   <NavLink
                     to={file.file_url}
                     target="_blank"
-                    className="text-xs font-[500] text-white inline-block px-2 py-1.5 bg-green-700 rounded-lg mx-auto"
+                    className={`text-xs font-[500] text-white inline-block px-2 py-1.5 ${
+                      directory === "images" ? "bg-green-700" : "bg-violet-700"
+                    } rounded-lg mx-auto`}
                   >
-                    <FontAwesomeIcon icon={faEye} />{" "}
-                    <span className="ml-1">View</span>
+                    <FontAwesomeIcon
+                      icon={directory === "images" ? faEye : faCloudArrowDown}
+                    />
+                    <span className="ml-1">
+                      {directory === "images" ? "View" : "Download"}
+                    </span>
                   </NavLink>
                 </td>
                 <td className="px-6 py-4 text-center">
