@@ -31,6 +31,7 @@ const File = ({ children }) => {
         }
       }
     } catch (error) {
+      setLoader(false);
       setAlert({
         status: "danger",
         message: error.message,
@@ -71,6 +72,7 @@ const File = ({ children }) => {
             setTimeout(() => setAlert(null), 3000);
           });
       } else {
+        setLoader(false);
         setAlert({
           status: "danger",
           message: response.data.message,
