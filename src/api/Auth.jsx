@@ -5,7 +5,8 @@ export const AuthContext = createContext();
 
 const Auth = ({ children }) => {
   const [loginToken, setLoginToken] = useState(localStorage.getItem("token"));
-  const [loggedInUser, setLoggedInUser] = useState({});
+  const [isTokenExpired, setIsTokenExpired] = useState(false);
+  const [loggedInUser, setLoggedInUser] = useState({ username: "" });
   const [errorMessage, seterrorMessage] = useState(null);
   const [loader, setLoader] = useState(false);
   const [alert, setAlert] = useState(null);
@@ -22,6 +23,15 @@ const Auth = ({ children }) => {
         );
         if (response.data.status === "success") {
           setLoggedInUser(response.data.user);
+          setIsTokenExpired(false);
+        } else if (
+          response.data.status === "failed" &&
+          response.data.message === "Token has expired"
+        ) {
+          setIsTokenExpired(true);
+          seterrorMessage("Your session has been expired.");
+          setTimeout(() => seterrorMessage(null), 5000);
+          localStorage.removeItem("token");
         }
       }
     } catch (error) {
@@ -128,6 +138,7 @@ const Auth = ({ children }) => {
     change_password,
     alert,
     setAlert,
+    isTokenExpired,
   };
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };

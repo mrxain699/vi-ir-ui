@@ -12,7 +12,7 @@ export const Navbar = () => {
     <div className="navbar w-full h-[60px] flex justify-between items-center shadow px-14 max-sm:px-8 bg-white z-10 fixed top-0 left-0">
       <div className="w-fit logo h-full flex justify-center items-center">
         <NavLink to="/dashboard" className="font-bold text-2xl text-violet-600">
-          VI-IR
+          VR-IV
         </NavLink>
       </div>
       <div className="profile w-fit h-full flex justify-center items-center">
